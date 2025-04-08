@@ -4,15 +4,9 @@ __all__ = [
     ]
 
 from io import BytesIO
-from io import StringIO
+from StringIO import StringIO
 import collections
-try:
-    try:
-        from lxml import etree
-    except ImportError:
-        raise ImportError("lxml library is required but not installed. Install it using 'pip install lxml'.")
-except ImportError:
-    raise ImportError("lxml library is required but not installed. Install it using 'pip install lxml'.")
+from lxml import etree
 from bs4.element import Comment, Doctype, NamespacedAttribute
 from bs4.builder import (
     FAST,
@@ -27,45 +21,6 @@ from bs4.dammit import EncodingDetector
 LXML = 'lxml'
 
 class LXMLTreeBuilderForXML(TreeBuilder):
-    LXMLTreeBuilderForXML is a TreeBuilder implementation that uses lxml's XML parsing capabilities 
-    to parse XML documents. It provides methods for handling XML namespaces, processing instructions, 
-    comments, and other XML-specific features.
-    Attributes:
-        DEFAULT_PARSER_CLASS (etree.XMLParser): The default parser class used for XML parsing.
-        is_xml (bool): Indicates that this builder is for XML documents.
-        features (list): A list of features supported by this builder, including LXML, XML, FAST, and PERMISSIVE.
-        DEFAULT_NSMAPS (dict): A default namespace mapping for XML namespaces.
-    Methods:
-        __init__(parser=None, empty_element_tags=None):
-            Initializes the builder with an optional parser and a set of empty element tags.
-        default_parser(encoding):
-            Returns the default parser instance or class for the given encoding.
-        parser_for(encoding):
-            Returns a parser instance for the specified encoding.
-        prepare_markup(markup, user_specified_encoding=None, document_declared_encoding=None):
-            Prepares the markup for parsing and yields strategies for parsing the document.
-        feed(markup):
-            Feeds markup data to the parser for processing.
-        close():
-            Finalizes the parsing process.
-        start(name, attrs, nsmap={}):
-            Handles the start of an XML element, including namespace processing.
-        end(name):
-            Handles the end of an XML element.
-        data(content):
-            Handles character data within an XML element.
-        doctype(name, pubid, system):
-            Handles the document type declaration (DOCTYPE).
-        comment(content):
-            Handles comments within the XML document.
-        pi(target, data):
-            Handles processing instructions within the XML document.
-        test_fragment_to_document(fragment):
-            Converts a fragment of XML into a complete XML document.
-        _getNsTag(tag):
-            Splits the namespace URL from a fully-qualified lxml tag name.
-        _prefix_for_namespace(namespace):
-            Finds the currently active prefix for a given namespace.
     DEFAULT_PARSER_CLASS = etree.XMLParser
 
     is_xml = True
@@ -73,13 +28,10 @@ class LXMLTreeBuilderForXML(TreeBuilder):
     # Well, it's permissive by XML parser standards.
     features = [LXML, XML, FAST, PERMISSIVE]
 
-    def default_parser(self, encoding):
-        pass
+    CHUNK_SIZE = 512
 
     # This namespace mapping is specified in the XML Namespace
-    def default_parser(self, encoding):
-        # encoding is not used, so it is removed from the method
-        return etree.XMLParser(target=self, strip_cdata=False, recover=True)
+    # standard.
     DEFAULT_NSMAPS = {'http://www.w3.org/XML/1998/namespace' : "xml"}
 
     def default_parser(self, encoding):
@@ -126,8 +78,8 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
         Each 4-tuple represents a strategy for parsing the document.
         """
-        if isinstance(markup, str):
-        if isinstance(markup, str):
+        if isinstance(markup, unicode):
+            # We were given Unicode. Maybe lxml can parse Unicode on
             # this system?
             yield markup, None, document_declared_encoding, False
 
@@ -150,7 +102,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
     def feed(self, markup):
         if isinstance(markup, bytes):
             markup = BytesIO(markup)
-        elif isinstance(markup, str):
+        elif isinstance(markup, unicode):
             markup = StringIO(markup)
 
         # Call feed() at least once, even if the markup is empty,
@@ -161,16 +113,15 @@ class LXMLTreeBuilderForXML(TreeBuilder):
             self.parser.feed(data)
             while len(data) != 0:
                 # Now call feed() on the rest of the data, chunk by chunk.
-        except (UnicodeDecodeError, LookupError, etree.ParserError) as e:
-            raise ParserRejectedMarkup(str(e))
+                data = markup.read(self.CHUNK_SIZE)
                 if len(data) != 0:
                     self.parser.feed(data)
             self.parser.close()
-        except (UnicodeDecodeError, LookupError, etree.ParserError) as e:
+        except (UnicodeDecodeError, LookupError, etree.ParserError), e:
             raise ParserRejectedMarkup(str(e))
 
     def close(self):
-        pass
+        self.nsmaps = [self.DEFAULT_NSMAPS]
 
     def start(self, name, attrs, nsmap={}):
         # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
@@ -214,28 +165,24 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
     def _prefix_for_namespace(self, namespace):
         """Find the currently active prefix for the given namespace."""
-        return None
+        if namespace is None:
             return None
         for inverted_nsmap in reversed(self.nsmaps):
             if inverted_nsmap is not None and namespace in inverted_nsmap:
-        # completed_tag is not used, so it is removed
-        self.soup.endData()
+                return inverted_nsmap[namespace]
         return None
 
     def end(self, name):
         self.soup.endData()
         completed_tag = self.soup.tagStack[-1]
-                    return inverted_nsmap[namespace]
+        namespace, name = self._getNsTag(name)
         nsprefix = None
-    def pi(self, target, data):
-        pass
+        if namespace is not None:
             for inverted_nsmap in reversed(self.nsmaps):
                 if inverted_nsmap is not None and namespace in inverted_nsmap:
                     nsprefix = inverted_nsmap[namespace]
                     break
-    def pi(self, target, data):
-        # target and data are not used, so the method is left empty
-        pass
+        self.soup.handle_endtag(name, nsprefix)
         if len(self.nsmaps) > 1:
             # This tag, or one of its parents, introduced a namespace
             # mapping, so pop it off the stack.
@@ -269,15 +216,15 @@ class LXMLTreeBuilder(HTMLTreeBuilder, LXMLTreeBuilderForXML):
     is_xml = False
 
     def default_parser(self, encoding):
-        except (UnicodeDecodeError, LookupError, etree.ParserError) as e:
+        return etree.HTMLParser
 
-        except (UnicodeDecodeError, LookupError, etree.ParserError) as e:
+    def feed(self, markup):
         encoding = self.soup.original_encoding
         try:
             self.parser = self.parser_for(encoding)
             self.parser.feed(markup)
             self.parser.close()
-        except (UnicodeDecodeError, LookupError, etree.ParserError) as e:
+        except (UnicodeDecodeError, LookupError, etree.ParserError), e:
             raise ParserRejectedMarkup(str(e))
 
 

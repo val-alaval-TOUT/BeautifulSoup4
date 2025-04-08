@@ -52,9 +52,9 @@ document. It's part of a story from `Alice in Wonderland`::
  <p class="title"><b>The Dormouse's story</b></p>
 
  <p class="story">Once upon a time there were three little sisters; and their names were
- <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
- <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
- <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+ <a href="https://espacejeux.com/acceuil" class="sister" id="link1">Elsie</a>,
+ <a href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" class="sister" id="link2">Lacie</a> and
+ <a href="https://www.espacejeux.com/fr/compte/depot" class="sister" id="link3">Tillie</a>;
  and they lived at the bottom of a well.</p>
 
  <p class="story">...</p>
@@ -82,16 +82,17 @@ data structure::
  #   </p>
  #   <p class="story">
  #    Once upon a time there were three little sisters; and their names were
- #    <a class="sister" href="http://example.com/elsie" id="link1">
- #     Elsie
+ #    <a class="sister" href=" <a href="https://espacejeux.com/acceuil" class="sister" id="link1">Elsie</a>,
+" id="link1">
+ #     accueil
  #    </a>
  #    ,
- #    <a class="sister" href="http://example.com/lacie" id="link2">
- #     Lacie
+ #    <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">
+ #     connexion
  #    </a>
  #    and
- #    <a class="sister" href="http://example.com/tillie" id="link2">
- #     Tillie
+ #    <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link2">
+ #     depot
  #    </a>
  #    ; and they lived at the bottom of a well.
  #   </p>
@@ -122,23 +123,23 @@ Here are some simple ways to navigate that data structure::
  # u'title'
 
  soup.a
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
 
  soup.find_all('a')
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  soup.find(id="link3")
- # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+ # <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>
 
 One common task is extracting all the URLs found within a page's <a> tags::
 
  for link in soup.find_all('a'):
      print(link.get('href'))
- # http://example.com/elsie
- # http://example.com/lacie
- # http://example.com/tillie
+ # https://espacejeux.com/
+ # https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA
+ # https://www.espacejeux.com/fr/compte/depot
 
 Another common task is extracting all the text from a page::
 
@@ -539,9 +540,9 @@ Here's the "Three sisters" HTML document again::
  <p class="title"><b>The Dormouse's story</b></p>
 
  <p class="story">Once upon a time there were three little sisters; and their names were
- <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
- <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
- <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+ <a href="https://espacejeux.com/" class="sister" id="link1">Elsie</a>,
+ <a href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" class="sister" id="link2">Lacie</a> and
+ <a href="https://www.espacejeux.com/fr/compte/depot" class="sister" id="link3">Tillie</a>;
  and they lived at the bottom of a well.</p>
 
  <p class="story">...</p>
@@ -585,16 +586,16 @@ Using a tag name as an attribute will give you only the `first` tag by that
 name::
 
  soup.a
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
 
 If you need to get `all` the <a> tags, or anything more complicated
 than the first tag with a certain name, you'll need to use one of the
 methods described in `Searching the tree`_, such as `find_all()`::
 
  soup.find_all('a')
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 ``.contents`` and ``.children``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -789,7 +790,7 @@ buried deep within the document, to the very top of the document::
 
  link = soup.a
  link
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
  for parent in link.parents:
      if parent is None:
          print(parent)
@@ -861,9 +862,9 @@ In real documents, the ``.next_sibling`` or ``.previous_sibling`` of a
 tag will usually be a string containing whitespace. Going back to the
 "three sisters" document::
 
- <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>
- <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a>
- <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>
+ <a href="https://espacejeux.com/" class="sister" id="link1">Elsie</a>
+ <a href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" class="sister" id="link2">Lacie</a>
+ <a href="https://www.espacejeux.com/fr/compte/depot" class="sister" id="link3">Tillie</a>
 
 You might think that the ``.next_sibling`` of the first <a> tag would
 be the second <a> tag. But actually, it's a string: the comma and
@@ -871,7 +872,7 @@ newline that separate the first <a> tag from the second::
 
  link = soup.a
  link
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
 
  link.next_sibling
  # u',\n'
@@ -879,7 +880,7 @@ newline that separate the first <a> tag from the second::
 The second <a> tag is actually the ``.next_sibling`` of the comma::
 
  link.next_sibling.next_sibling
- # <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>
+ # <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>
 
 .. _sibling-generators:
 
@@ -892,18 +893,18 @@ You can iterate over a tag's siblings with ``.next_siblings`` or
  for sibling in soup.a.next_siblings:
      print(repr(sibling))
  # u',\n'
- # <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>
+ # <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>
  # u' and\n'
- # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+ # <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>
  # u'; and they lived at the bottom of a well.'
  # None
 
  for sibling in soup.find(id="link3").previous_siblings:
      print(repr(sibling))
  # ' and\n'
- # <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>
+ # <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>
  # u',\n'
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
  # u'Once upon a time there were three little sisters; and their names were\n'
  # None
 
@@ -936,7 +937,7 @@ interrupted by the start of the <a> tag.::
 
  last_a_tag = soup.find("a", id="link3")
  last_a_tag
- # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+ # <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>
 
  last_a_tag.next_sibling
  # '; and they lived at the bottom of a well.'
@@ -961,7 +962,7 @@ immediately before this one::
  last_a_tag.previous_element
  # u' and\n'
  last_a_tag.previous_element.next_element
- # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+ # <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>
 
 ``.next_elements`` and ``.previous_elements``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -996,9 +997,9 @@ Once again, I'll be using the "three sisters" document as an example::
  <p class="title"><b>The Dormouse's story</b></p>
 
  <p class="story">Once upon a time there were three little sisters; and their names were
- <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
- <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
- <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+ <a href="https://espacejeux.com/" class="sister" id="link1">Elsie</a>,
+ <a href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" class="sister" id="link2">Lacie</a> and
+ <a href="https://www.espacejeux.com/fr/compte/depot" class="sister" id="link3">Tillie</a>;
  and they lived at the bottom of a well.</p>
 
  <p class="story">...</p>
@@ -1069,9 +1070,9 @@ against `any` item in that list. This code finds all the <a> tags
 
  soup.find_all(["a", "b"])
  # [<b>The Dormouse's story</b>,
- #  <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ #  <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 .. _the value True:
 
@@ -1158,12 +1159,12 @@ examples in `Kinds of filters`_, but here are a few more::
  # [<p class="title"><b>The Dormouse's story</b></p>]
 
  soup.find_all("a")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  soup.find_all(id="link2")
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>]
 
  import re
  soup.find(text=re.compile("sisters"))
@@ -1202,13 +1203,13 @@ of a tag's attributes. If you pass in a value for an argument called ``id``,
 Beautiful Soup will filter against each tag's 'id' attribute::
 
  soup.find_all(id='link2')
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>]
 
 If you pass in a value for ``href``, Beautiful Soup will filter
 against each tag's 'href' attribute::
 
  soup.find_all(href=re.compile("elsie"))
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>]
 
 You can filter an attribute based on `a string`_, `a regular
 expression`_, `a list`_, `a function`_, or `the value True`_.
@@ -1217,15 +1218,15 @@ This code finds all tags whose ``id`` attribute has a value,
 regardless of what the value is::
 
  soup.find_all(id=True)
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 You can filter multiple attributes at once by passing in more than one
 keyword argument::
 
  soup.find_all(href=re.compile("elsie"), id='link1')
- # [<a class="sister" href="http://example.com/elsie" id="link1">three</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">three</a>]
 
 Some attributes, like the data-* attributes in HTML 5, have names that
 can't be used as the names of keyword arguments::
@@ -1253,9 +1254,9 @@ error. As of Beautiful Soup 4.1.2, you can search by CSS class using
 the keyword argument ``class_``::
 
  soup.find_all("a", class_="sister")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 As with any keyword argument, you can pass ``class_`` a string, a regular
 expression, a function, or ``True``::
@@ -1267,9 +1268,9 @@ expression, a function, or ``True``::
      return css_class is not None and len(css_class) == 6
 
  soup.find_all(class_=has_six_characters)
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 :ref:`Remember <multivalue>` that a single tag can have multiple
 values for its "class" attribute. When you search for a tag that
@@ -1305,9 +1306,9 @@ dictionary whose value for "class" is the string (or regular
 expression, or whatever) you want to search for::
 
  soup.find_all("a", attrs={"class": "sister"})
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 .. _text:
 
@@ -1341,7 +1342,7 @@ arguments that find tags: Beautiful Soup will find all tags whose
 tags whose ``.string`` is "Elsie"::
 
  soup.find_all("a", text="Elsie")
- # [<a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>]
+ # [<a href="https://espacejeux.com/" class="sister" id="link1">Elsie</a>]
 
 .. _limit:
 
@@ -1358,8 +1359,8 @@ There are three links in the "three sisters" document, but this code
 only finds the first two::
 
  soup.find_all("a", limit=2)
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>]
 
 .. _recursive:
 
@@ -1480,13 +1481,13 @@ buried deep in the "three daughters" document::
   # u'Lacie'
 
   a_string.find_parents("a")
-  # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+  # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>]
 
   a_string.find_parent("p")
   # <p class="story">Once upon a time there were three little sisters; and their names were
-  #  <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
-  #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a> and
-  #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>;
+  #  <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+  #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a> and
+  #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>;
   #  and they lived at the bottom of a well.</p>
 
   a_string.find_parents("p", class="title")
@@ -1519,11 +1520,11 @@ and ``find_next_sibling()`` only returns the first one::
 
  first_link = soup.a
  first_link
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
 
  first_link.find_next_siblings("a")
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  first_story_paragraph = soup.find("p", "story")
  first_story_paragraph.find_next_sibling("p")
@@ -1543,11 +1544,11 @@ method returns all the siblings that match, and
 
  last_link = soup.find("a", id="link3")
  last_link
- # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+ # <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>
 
  last_link.find_previous_siblings("a")
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>]
 
  first_story_paragraph = soup.find("p", "story")
  first_story_paragraph.find_previous_sibling("p")
@@ -1568,7 +1569,7 @@ document. The ``find_all_next()`` method returns all matches, and
 
  first_link = soup.a
  first_link
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
 
  first_link.find_all_next(text=True)
  # [u'Elsie', u',\n', u'Lacie', u' and\n', u'Tillie',
@@ -1598,7 +1599,7 @@ document. The ``find_all_previous()`` method returns all matches, and
 
  first_link = soup.a
  first_link
- # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+ # <a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>
 
  first_link.find_all_previous("p")
  # [<p class="story">Once upon a time there were three little sisters; ...</p>,
@@ -1634,9 +1635,9 @@ You can find tags::
 Find tags beneath other tags::
 
  soup.select("body a")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie"  id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA"  id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  soup.select("html head title")
  # [<title>The Dormouse's story</title>]
@@ -1647,15 +1648,15 @@ Find tags `directly` beneath other tags::
  # [<title>The Dormouse's story</title>]
 
  soup.select("p > a")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie"  id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA"  id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  soup.select("p > a:nth-of-type(2)")
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>]
 
  soup.select("p > #link1")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>]
 
  soup.select("body > a")
  # []
@@ -1663,54 +1664,54 @@ Find tags `directly` beneath other tags::
 Find the siblings of tags::
 
  soup.select("#link1 ~ .sister")
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie"  id="link3">Tillie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot"  id="link3">Tillie</a>]
 
  soup.select("#link1 + .sister")
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>]
 
 Find tags by CSS class::
 
  soup.select(".sister")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  soup.select("[class~=sister]")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 Find tags by ID::
 
  soup.select("#link1")
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>]
 
  soup.select("a#link2")
- # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+ # [<a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>]
 
 Test for the existence of an attribute::
 
  soup.select('a[href]')
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
 Find tags by attribute value::
 
- soup.select('a[href="http://example.com/elsie"]')
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>]
+ soup.select('a[href="https://espacejeux.com/"]')
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>]
 
  soup.select('a[href^="http://example.com/"]')
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
- #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
- #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>,
+ #  <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">Lacie</a>,
+ #  <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  soup.select('a[href$="tillie"]')
- # [<a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ # [<a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">Tillie</a>]
 
  soup.select('a[href*=".com/el"]')
- # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>]
+ # [<a class="sister" href="https://espacejeux.com/" id="link1">Elsie</a>]
 
 Match language codes::
 
@@ -2619,27 +2620,27 @@ three ``SoupStrainer`` objects::
  <p class="title"><b>The Dormouse's story</b></p>
 
  <p class="story">Once upon a time there were three little sisters; and their names were
- <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
- <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
- <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+ <a href="https://espacejeux.com/" class="sister" id="link1">Elsie</a>,
+ <a href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" class="sister" id="link2">Lacie</a> and
+ <a href="https://www.espacejeux.com/fr/compte/depot" class="sister" id="link3">Tillie</a>;
  and they lived at the bottom of a well.</p>
 
  <p class="story">...</p>
  """
 
  print(BeautifulSoup(html_doc, "html.parser", parse_only=only_a_tags).prettify())
- # <a class="sister" href="http://example.com/elsie" id="link1">
+ # <a class="sister" href="https://espacejeux.com/" id="link1">
  #  Elsie
  # </a>
- # <a class="sister" href="http://example.com/lacie" id="link2">
+ # <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">
  #  Lacie
  # </a>
- # <a class="sister" href="http://example.com/tillie" id="link3">
+ # <a class="sister" href="https://www.espacejeux.com/fr/compte/depot" id="link3">
  #  Tillie
  # </a>
 
  print(BeautifulSoup(html_doc, "html.parser", parse_only=only_tags_with_id_link2).prettify())
- # <a class="sister" href="http://example.com/lacie" id="link2">
+ # <a class="sister" href="https://connexion.lotoquebec.com/u/login?state=hKFo2SBCakFaSGc2SEJuLUducVRxQjF2elZlTV9BeGUwUFo4OKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDAwSWNhVDQxOVVEYlIzeGFScnlNRXFlTVNnbG02bm5no2NpZNkgVFNuREZJMFlwYTFTNklPSVd5Q3dtZ2gxSUN0VDQ2NTQ&ui_locales=fr-CA" id="link2">
  #  Lacie
  # </a>
 
